@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  android-builder:
+    build: .
+    container_name: android-kernel-builder
+    volumes:
+      - ./kernel-out:/android/out
+      - ./modules:/android/modules
+    working_dir: /android
+    tty: true
+    stdin_open: true
+    command: bash -c "make info && /bin/bash"
+
